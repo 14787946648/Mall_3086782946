@@ -1,0 +1,15 @@
+# 服务端口
+server:
+  port: 10014
+# 服务名称
+spring:
+  application:
+    name: aurora-infrastructure-services
+  # Nacos
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public

@@ -1,0 +1,37 @@
+
+！！！！！！！！！！！！！！！！！！！！！！！！！！！！！DDD领域驱动设计！！！！！！！！！！！！！！！！！！！！！！！！！！！
+
+商品服务(aurora-product-services) - 商品的添加、信息查询等功能
+    端口：10001
+购物服务(aurora-cart-services) - 购物车的增删改查
+    端口：10002
+订单服务(aurora-order-services) - 生成订单，订单管理
+    端口：10003
+支付服务(aurora-payment-services) - 通过调用第三方支付实现支付功能
+    端口：10004
+账号服务(aurora-user-services) - 用户信息、等级、封禁、地址管理
+    端口：10005
+营销服务(aurora-recommend-services) - 商品推广
+    端口：10006
+评论服务(aurora-reply-services) - 商品的评论功能、评论的回复功能
+    端口：10007
+会员服务(aurora-vip-services)- vip管理
+    端口：10008
+财务服务(aurora-finance-services) - 财务、报表统计等
+    端口：10009
+库存服务(aurora-stock-services) - 库存管理预警等
+    端口：10010
+签约服务(aurora-sign-contract-services) - 合同相关服务
+    端口：10011
+三方服务(aurora-tripartite-services) - 短信 邮件 物流第三方
+    端口：10012
+任务调度(aurora-dispatch-services) - 异步、定时任务调度
+    端口：10013
+网关服务(aurora-gateway-services) - 网关服务
+    端口：10014
+基础服务(aurora-infrastructure-services) - 技术解耦，基础设施封装
+    端口：10015
+基础设施(aurora-common) - 实体定义，实体工厂，实体聚合
+
+预警服务()
+

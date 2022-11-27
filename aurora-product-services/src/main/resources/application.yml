@@ -1,0 +1,15 @@
+server:
+  port: 10001
+# 服务名称
+spring:
+  application:
+    name: aurora-product-services
+  # Nacos
+  cloud:
+    nacos:
+      # Nacos地址
+      server-addr: 127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public

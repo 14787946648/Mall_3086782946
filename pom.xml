@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.aurora</groupId>
+    <artifactId>mall</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>mall</name>
+    <description>mall</description>
+
+    <!-- 子模块 -->
+    <modules>
+        <module>aurora-product-services</module>
+        <module>aurora-cart-services</module>
+        <module>aurora-order-services</module>
+        <module>aurora-user-services</module>
+    </modules>
+
+    <!-- 修改打包方式 -->
+    <packaging>pom</packaging>
+
+    <!-- 版本管理 -->
+    <properties>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 2022.11.16 SpringCloudAlibaba2021.x 最新适配版3SpringXXX搭配 -->
+        <spring-boot.version>2.6.11</spring-boot.version>
+        <spring-cloud.version>2021.0.4</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <!-- mybatis-plus 选择版本适配spring-boot -->
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <!-- 2022.11.16 SpringCloudAlibaba2.2.x 最新适配版3SpringXXX搭配 -->
+        <!--    <spring-boot.version>2.3.12.RELEASE</spring-boot.version>-->
+        <!--    <spring-cloud.version>Hoxton.SR12</spring-cloud.version>-->
+        <!--    <spring-cloud-alibaba.version>2.2.9.RELEASE</spring-cloud-alibaba.version>-->
+        <!--    <mybatis-plus.version>3.4.2</mybatis-plus.version>-->
+        <mysql.version>8.0.22</mysql.version>
+        <fastjson.version>2.0.18</fastjson.version>
+        <junit.version>4.13.2</junit.version>
+        <lombok.version>1.18.24</lombok.version>
+        <log4j.version>1.2.17</log4j.version>
+        <hutool.version>5.8.2</hutool.version>
+        <jwt.version>4.2.1</jwt.version>
+        <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
+        <servlet.version>2.5</servlet.version>
+        <mapstruct.version>1.4.1.Final</mapstruct.version>
+    </properties>
+
+    <!--  因为是总项目 所以用dependencyManagement来管理；其他的子项目就不会来管理版本了了 可以直接引用 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- springBoot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <!-- type和scope标签：让子model可以多继承父model -->
+                <!-- <type></type> 里的值默认值是jar表示引入的是jar包，这里使用的是pom表示导入的是父模块； -->
+                <!-- <scope></scope>中的值import代表把父模块中的jar包导入进来，不过需要注意的是<scope>import</scope>, -->
+                <!-- 这种方式只能用在<dependencyManagement></dependencyManagement>中。 -->
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- springCloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- springCloudAlibaba -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- mysql驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- Java对象和JSON相互转换 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- JavaBean 注解构建 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <!-- 测试 -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <!-- 日志 -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <!--hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- JWT-->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <!-- mapStruct 对象转换 -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- servlet -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

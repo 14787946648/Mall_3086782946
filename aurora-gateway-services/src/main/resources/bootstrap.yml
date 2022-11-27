@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: aurora-gateway-services
+  cloud:
+    nacos:
+      # Nacos相关配置
+      server-addr: 127.0.0.1:8848
+      discovery:
+        # Nacos账户密码
+        username: nacos
+        password: nacos
+        # Nacos 命名空间
+        namespace: public
+    gateway:
+      discovery:
+        locator:
+          #开启注册中心路由功能
+          enabled: true
+      routes:
+        # aurora-product-services 路由的ID，配合服务名
+        - id: aurora-user-services_routh
+          # 匹配后提供服务的路由地址
+          uri: lb://aurora-user-services
+          # 断言，路径相匹配的进行路由
+          predicates:
+            - Path=/api/**
+          # 在路由前对请求的地址进行额外的其他操作，例如拼接或者裁减等。 此处的作用在于去除掉 predicates中配置的路径，
+          # 因为该路径只是断言，并无实际地址
+          filters:
+            #表示删除第二个路径，即删除predicates中配置的/xxx/xxx
+            - StripPrefix=0
