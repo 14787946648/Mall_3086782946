@@ -149,7 +149,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!-- 热部署配置需添加以下configuration，不加该配置可能不会生效。不需要热部署可以去掉 -->
                 <configuration>
-                    <fork>true</fork>
                     <addResources>true</addResources>
                 </configuration>
             </plugin>
