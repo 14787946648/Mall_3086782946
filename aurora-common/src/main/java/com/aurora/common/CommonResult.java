@@ -1,6 +1,5 @@
-package com.aurora.response;
+package com.aurora.common;
 
-import com.aurora.enumeration.CodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +16,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@SuppressWarnings("unused")
 public class CommonResult<T> implements Serializable {
 
     /**

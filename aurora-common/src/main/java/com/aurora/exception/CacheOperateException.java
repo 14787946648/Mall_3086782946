@@ -7,15 +7,15 @@ import lombok.Setter;
 import java.text.MessageFormat;
 
 /**
- * @Description 自定义异常类
+ * @Description 缓存操作异常
+ * @Date 2022-11-30 2:53
+ * @Version v1.0
  * @Author wh14787946648@outlook.com
- * @Date 2022-11-19 23:27
- * @Version 1.0
  **/
 @NoArgsConstructor
 @Setter
 @SuppressWarnings("unused")
-public class BusinessException extends RuntimeException {
+public class CacheOperateException extends RuntimeException {
     /**
      * 默认错误码
      */
@@ -36,7 +36,7 @@ public class BusinessException extends RuntimeException {
      *
      * @param errorMsg 错误消息
      */
-    public BusinessException(String errorMsg) {
+    public CacheOperateException(String errorMsg) {
         super(errorMsg);
         this.errorCode = DEFAULT_ERROR_CODE;
         this.errorMsg = errorMsg;
@@ -48,7 +48,7 @@ public class BusinessException extends RuntimeException {
      * @param errorCode 错误代码
      * @param errorMsg  错误消息
      */
-    public BusinessException(int errorCode, String errorMsg) {
+    public CacheOperateException(int errorCode, String errorMsg) {
         super(errorMsg);
         this.errorCode = errorCode;
         this.errorMsg = errorMsg;
@@ -59,7 +59,7 @@ public class BusinessException extends RuntimeException {
      *
      * @param baseErrorCodeEnum 错误代码接口
      */
-    public BusinessException(CodeEnum baseErrorCodeEnum) {
+    public CacheOperateException(CodeEnum baseErrorCodeEnum) {
         super(baseErrorCodeEnum.getMessage());
         this.errorCode = baseErrorCodeEnum.getCode();
         this.errorMsg = baseErrorCodeEnum.getMessage();
@@ -72,7 +72,7 @@ public class BusinessException extends RuntimeException {
      * @param errorMsg  错误消息
      * @param arguments 错误消息详情
      */
-    public BusinessException(int errorCode, String errorMsg, Object... arguments) {
+    public CacheOperateException(int errorCode, String errorMsg, Object... arguments) {
         super(MessageFormat.format(errorMsg, arguments));
         this.errorCode = errorCode;
         this.errorMsg = MessageFormat.format(errorMsg, arguments);
@@ -84,10 +84,9 @@ public class BusinessException extends RuntimeException {
      * @param baseErrorCodeEnum 错误代码接口
      * @param arguments         错误消息详情
      */
-    public BusinessException(CodeEnum baseErrorCodeEnum, Object... arguments) {
+    public CacheOperateException(CodeEnum baseErrorCodeEnum, Object... arguments) {
         super(MessageFormat.format(baseErrorCodeEnum.getMessage(), arguments));
         this.errorCode = baseErrorCodeEnum.getCode();
         this.errorMsg = MessageFormat.format(baseErrorCodeEnum.getMessage(), arguments);
     }
 }
-

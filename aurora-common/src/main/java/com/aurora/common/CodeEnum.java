@@ -1,4 +1,4 @@
-package com.aurora.enumeration;
+package com.aurora.common;
 
 import lombok.Getter;
 
@@ -60,13 +60,17 @@ public enum CodeEnum {
      **/
     JWT_ALGORITHM_INCONSISTENCY(2003, "token算法不一致"),
     /**
-     * token失效
+     * token无效
      **/
-    JWT_LOSE_EFFECT(2004, "token失效"),
+    JWT_LOSE_EFFECT(2004, "token无效"),
     /**
      * 非法请求
      **/
-    ILLEGAL_REQUEST(2005, "非法请求,请求来源不合法");
+    ILLEGAL_REQUEST(2005, "非法请求,请求来源不合法"),
+    /**
+     * 非法请求
+     **/
+    CACHE_OPERATE(2005, "Redis cache operation failed!");
 
     /**
      * 自定义状态码

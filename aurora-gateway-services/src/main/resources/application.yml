@@ -4,7 +4,7 @@ server:
 # 无需鉴权的URL
 url-blocking:
   ignores:
-    - /api/aurora-user-services/login
+    - /api/rest/aurora-user-services/login
     - /user/register
     - /user/getCode/**
 #########################################################Token相关信息配置###############################################

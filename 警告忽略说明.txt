@@ -1,0 +1,26 @@
+// 忽略全部类型的警告
+@SuppressWarnings("all") 　　
+
+// 忽略未检查的转化，例如集合没有指定类型的警告
+@SuppressWarnings("unchecked")
+　
+// 忽略未使用的变量的警告
+@SuppressWarnings("unused")　
+
+// 忽略与使用Closeable类型资源相关的警告
+@SuppressWarnings("resource")　　
+
+// 忽略在类路径，原文件路径中有不存在的路径的警告
+@SuppressWarnings("path")　　　
+
+// 忽略使用了某些不赞成使用的类和方法的警告
+@SuppressWarnings("deprecation")
+
+// 忽略switch语句执行到底没有break关键字的警告
+@SuppressWarnings("fallthrough")
+
+// 忽略某类实现Serializable，但是没有定义serialVersionUID的警告
+@SuppressWarnings("serial")　
+
+// 忽略没有传递带有泛型的参数的警告
+@SuppressWarnings("rawtypes")

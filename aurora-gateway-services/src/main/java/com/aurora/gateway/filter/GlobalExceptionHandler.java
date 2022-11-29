@@ -1,8 +1,8 @@
-package com.aurora.gateway.exception;
+package com.aurora.gateway.filter;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.aurora.response.CommonResult;
+import com.aurora.common.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.NettyWriteResponseFilter;
@@ -22,18 +22,7 @@ import java.util.Objects;
  **/
 @Configuration
 @Slf4j
-public class GlobalFilterHandlerImpl implements GlobalFilterHandler {
-
-
-    /**
-     * 是否需要过滤
-     */
-    public static final String IS_IGNORE_AUTH_FILTER = "ignore";
-
-    /**
-     * 响应体message字段标记
-     */
-    public static final String MESSAGE = "message";
+public class GlobalExceptionHandler implements FilterHandler {
 
     @Override
     public int getOrder() {
@@ -78,7 +67,6 @@ public class GlobalFilterHandlerImpl implements GlobalFilterHandler {
         // 将状态码统一重置为200，在这里重置才是终极解决办法
         log.debug("Response status code is {} , body is {}", originalResponseStatus, new String(originalBody));
         JSONObject res = (JSONObject) JSON.parse(originalBody);
-        System.err.println(res.toString());
         // 下游服务响应内容为空，但是http状态码为200，则按照成功的响应体包装返回
         if (originalResponseStatus == HttpStatus.OK.value()) {
             if (originalBody.length == 0) {
@@ -110,4 +98,14 @@ public class GlobalFilterHandlerImpl implements GlobalFilterHandler {
         // 其他状态码
         return Mono.just(JSON.toJSONBytes(CommonResult.fail(originalResponseStatus, res.get("message").toString(), "")));
     }
+
+    /**
+     * 是否需要过滤
+     */
+    public static final String IS_IGNORE_AUTH_FILTER = "ignore";
+
+    /**
+     * 响应体message字段标记
+     */
+    public static final String MESSAGE = "message";
 }

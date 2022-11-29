@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author wh14787946648@outlook.com
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"com.aurora"})
 public class AuroraUserServicesApplication {
 
     public static void main(String[] args) {

@@ -45,10 +45,6 @@
         <!--            <artifactId>spring-boot-starter-data-mongodb</artifactId>-->
         <!--        </dependency>-->
         <!-- redis -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
-        <!--        </dependency>-->
         <!--引入es的RestHighLevelClient依赖-->
         <!--        <dependency>-->
         <!--            <groupId>org.elasticsearch.client</groupId>-->
@@ -153,6 +149,18 @@
             <artifactId>aurora-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
+        <!--加密解密-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+        </dependency>
+        <!-- JWT 工具類-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <!-- 每个子项目可单独打包然后分发到各自服务器部署 -->
@@ -165,7 +173,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <!-- 热部署配置需添加以下configuration，不加该配置可能不会生效。不需要热部署可以去掉 -->
                 <configuration>
-                    <fork>true</fork>
                     <addResources>true</addResources>
                 </configuration>
             </plugin>

@@ -10,10 +10,22 @@
 
     <!-- 子模块 -->
     <modules>
-        <module>aurora-product-services</module>
         <module>aurora-cart-services</module>
+        <module>aurora-common</module>
+        <module>aurora-dispatch-services</module>
+        <module>aurora-finance-services</module>
+        <module>aurora-gateway-services</module>
+        <module>aurora-infrastructure-services</module>
         <module>aurora-order-services</module>
+        <module>aurora-payment-services</module>
+        <module>aurora-product-services</module>
+        <module>aurora-recommend-services</module>
+        <module>aurora-reply-services</module>
+        <module>aurora-sign-contract-services</module>
+        <module>aurora-stock-services</module>
+        <module>aurora-tripartite-services</module>
         <module>aurora-user-services</module>
+        <module>aurora-vip-services</module>
     </modules>
 
     <!-- 修改打包方式 -->
@@ -46,6 +58,8 @@
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <servlet.version>2.5</servlet.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
+        <jedis.version>3.1.0</jedis.version>
+        <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
     </properties>
 
     <!--  因为是总项目 所以用dependencyManagement来管理；其他的子项目就不会来管理版本了了 可以直接引用 -->
@@ -140,6 +154,19 @@
                 <artifactId>servlet-api</artifactId>
                 <version>${servlet.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            <!--Jedis-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <!-- JWT 工具類-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jsonwebtoken.version}</version>
+                <scope>compile</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

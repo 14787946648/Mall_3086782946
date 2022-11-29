@@ -1,4 +1,4 @@
-package com.aurora.gateway.exception;
+package com.aurora.gateway.filter;
 
 import org.reactivestreams.Publisher;
 import org.springframework.cloud.gateway.filter.factory.rewrite.CachedBodyOutputMessage;
@@ -76,9 +76,7 @@ public class ServerHttpResponseDecoratorHelper {
         }));
     }
 
-    public interface MyRewriteFunction<T, R>
-            extends Function<T, Mono<R>> {
-
+    public interface MyRewriteFunction<T, R> extends Function<T, Mono<R>> {
     }
 }
 

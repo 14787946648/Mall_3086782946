@@ -32,6 +32,6 @@
 基础服务(aurora-infrastructure-services) - 技术解耦，基础设施封装
     端口：10015
 基础设施(aurora-common) - 实体定义，实体工厂，实体聚合
-
+    端口：10016
 预警服务()
 

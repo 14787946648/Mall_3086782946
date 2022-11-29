@@ -1,6 +1,6 @@
 package com.aurora.user.infrastructure.general.config;
 
-import com.aurora.response.CommonResult;
+import com.aurora.common.CommonResult;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

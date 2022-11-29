@@ -1,9 +1,9 @@
 ├─com.company.microservice
 │    │
 │    ├─interfaces   API接口层
-│    │    ├─model     视图模型,数据模型定义 vo/dto（大多数情況是一样的）
+│    │    ├─model        视图模型,数据模型定义 vo/dto（大多数情況是一样的）
 │    │    ├─assembler    装配器，实现模型转换eg. apiModel<=> domainModel
-│    │    └─controller   控制器，对外提供（Restful）接口
+│    │    └─facade       控制器，对外提供（Restful）接口
 │    │
 │    ├─application   应用层
 │    │    ├─service  应用服务，非核心服务
